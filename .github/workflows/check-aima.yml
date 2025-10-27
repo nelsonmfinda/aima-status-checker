@@ -28,6 +28,9 @@ jobs:
         npx playwright install chromium
         npx playwright install-deps
 
+    - name: Build TypeScript
+      run: npm run build
+
     - name: Run AIMA status checker
       env:
         AIMA_EMAIL: ${{ secrets.AIMA_EMAIL }}
