@@ -14,10 +14,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '18'
         cache: 'npm'
@@ -28,21 +28,21 @@ jobs:
         npx playwright install chromium
         npx playwright install-deps
 
-    - name: Run AIMA checker
+    - name: Run AIMA status checker
       env:
         AIMA_EMAIL: ${{ secrets.AIMA_EMAIL }}
         AIMA_PASSWORD: ${{ secrets.AIMA_PASSWORD }}
         RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
         SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
         RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
-        # PROXY_SERVER: ${{ secrets.PROXY_SERVER }}
-        # PROXY_USERNAME: ${{ secrets.PROXY_USERNAME }}
-        # PROXY_PASSWORD: ${{ secrets.PROXY_PASSWORD }}
-      run: npm run start
+        PROXY_SERVER: ${{ secrets.PROXY_SERVER }}
+        PROXY_USERNAME: ${{ secrets.PROXY_USERNAME }}
+        PROXY_PASSWORD: ${{ secrets.PROXY_PASSWORD }}
+      run: npm start
 
     - name: Upload artifacts on failure
       if: failure()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: error-screenshots
         path: |
