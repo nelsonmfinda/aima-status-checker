@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "api/check-status.ts": {
+      "maxDuration": 60
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/check-status",
+      "schedule": "0 9 */4 * *"
+    }
+  ]
+}

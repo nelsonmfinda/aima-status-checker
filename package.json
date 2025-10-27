@@ -1,0 +1,41 @@
+{
+  "name": "aima-status-checker",
+  "version": "2.0.0",
+  "description": "Automated AIMA status checker with screenshot email notifications - Refactored with clean code principles",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx index.ts",
+    "start": "node dist/index.js",
+    "test:connectivity": "tsx tests/connectivity.test.ts",
+    "test:email": "tsx tests/email.test.ts",
+    "test": "npm run test:connectivity",
+    "lint": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "vercel-build": "npm run build && npx playwright install chromium"
+  },
+  "dependencies": {
+    "playwright": "^1.40.0",
+    "resend": "^2.0.0",
+    "dotenv": "^16.3.1",
+    "axios": "^1.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.2",
+    "tsx": "^4.6.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "aima",
+    "scraper",
+    "automation",
+    "playwright",
+    "typescript",
+    "resend"
+  ],
+  "author": "",
+  "license": "MIT"
+}
