@@ -16,7 +16,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Setup Node.js
+    - name: Setup
       uses: actions/setup-node@v4
       with:
         node-version: '18'
@@ -28,10 +28,10 @@ jobs:
         npx playwright install chromium
         npx playwright install-deps
 
-    - name: Build TypeScript
+    - name: Build
       run: npm run build
 
-    - name: Run AIMA status checker
+    - name: Run status checker
       env:
         AIMA_EMAIL: ${{ secrets.AIMA_EMAIL }}
         AIMA_PASSWORD: ${{ secrets.AIMA_PASSWORD }}
